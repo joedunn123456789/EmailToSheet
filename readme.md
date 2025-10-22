@@ -14,7 +14,6 @@ Perfect for organizing job applications, tracking correspondence, archiving emai
 ## 🚀 Quick Start
 
 ### Gmail Solution
-
 - ✅ Works with personal Gmail accounts
 - ✅ Runs directly in Google Sheets
 - ✅ No installation required
@@ -23,7 +22,6 @@ Perfect for organizing job applications, tracking correspondence, archiving emai
 [Jump to Gmail Setup →](#gmail-to-google-sheets)
 
 ### Outlook Solution
-
 - ✅ Works with personal Outlook accounts
 - ✅ Runs on your computer
 - ✅ Exports to Excel (.xlsx)
@@ -36,7 +34,6 @@ Perfect for organizing job applications, tracking correspondence, archiving emai
 ## Gmail to Google Sheets
 
 ### Features
-
 - Export emails from any Gmail label/folder
 - Captures: Date, From, Subject, Body Preview, Labels
 - Customizable search queries
@@ -45,23 +42,19 @@ Perfect for organizing job applications, tracking correspondence, archiving emai
 ### Setup Instructions
 
 1. **Open Google Sheets**
-
    - Go to [sheets.google.com](https://sheets.google.com)
    - Create a new blank spreadsheet
 
 2. **Open Apps Script Editor**
-
    - Click `Extensions` → `Apps Script`
 
 3. **Add the Script**
-
    - Delete any existing code
    - Copy the code from [`gmail_to_sheets.gs`](gmail_to_sheets.gs)
    - Paste it into the editor
    - Click Save (💾)
 
 4. **Configure the Script**
-
    - Find line 23: `var searchQuery = "label:job-hunting";`
    - Change `"label:job-hunting"` to your label name
    - Change line 26 if you want more/fewer emails: `var maxEmails = 100;`
@@ -75,24 +68,21 @@ Perfect for organizing job applications, tracking correspondence, archiving emai
 ### Customization
 
 **Change the label:**
-
 ```javascript
 var searchQuery = "label:your-label-name";
 ```
 
 **Change number of emails:**
-
 ```javascript
-var maxEmails = 200; // Export 200 emails
+var maxEmails = 200;  // Export 200 emails
 ```
 
 **Search examples:**
-
 ```javascript
-var searchQuery = "is:unread"; // Only unread emails
-var searchQuery = "from:someone@example.com"; // From specific sender
-var searchQuery = "after:2024/01/01"; // After a specific date
-var searchQuery = "subject:interview"; // Emails with "interview" in subject
+var searchQuery = "is:unread";  // Only unread emails
+var searchQuery = "from:someone@example.com";  // From specific sender
+var searchQuery = "after:2024/01/01";  // After a specific date
+var searchQuery = "subject:interview";  // Emails with "interview" in subject
 ```
 
 ---
@@ -100,7 +90,6 @@ var searchQuery = "subject:interview"; // Emails with "interview" in subject
 ## Outlook to Excel (Python)
 
 ### Features
-
 - Export emails from any Outlook folder
 - Captures: Date, From, Subject, Body Preview, Folder
 - Works with personal Outlook accounts
@@ -108,7 +97,6 @@ var searchQuery = "subject:interview"; // Emails with "interview" in subject
 - Can be scheduled to run automatically
 
 ### Requirements
-
 - Python 3.6 or higher
 - `openpyxl` library
 - Outlook account with IMAP enabled
@@ -117,18 +105,15 @@ var searchQuery = "subject:interview"; // Emails with "interview" in subject
 ### Installation
 
 1. **Install Python**
-
    - Download from [python.org](https://www.python.org/downloads/)
    - **Important:** Check "Add Python to PATH" during installation
 
 2. **Install Required Library**
-
    ```bash
    pip install openpyxl
    ```
 
 3. **Get Your Outlook App Password**
-
    - Go to [Microsoft Security](https://account.microsoft.com/security)
    - Enable Two-Step Verification
    - Create an App Password
@@ -142,14 +127,11 @@ var searchQuery = "subject:interview"; // Emails with "interview" in subject
 ### Setup Instructions
 
 1. **Download the Script**
-
    - Download [`outlook_to_excel_python.py`](outlook_to_excel_python.py)
 
 2. **Configure the Script**
-
    - Open the file in a text editor
    - Find the configuration section at the top:
-
    ```python
    EMAIL = "your-email@outlook.com"  # Your email
    PASSWORD = "your-app-password-here"  # Your app password
@@ -157,18 +139,14 @@ var searchQuery = "subject:interview"; // Emails with "interview" in subject
    MAX_EMAILS = 100  # Number of emails to export
    OUTPUT_FILE = "outlook_emails.xlsx"  # Output filename
    ```
-
    - Update with your information
    - Save the file
 
 3. **Run the Script**
-
    ```bash
    python outlook_to_excel_python.py
    ```
-
    Or on Mac/Linux:
-
    ```bash
    python3 outlook_to_excel_python.py
    ```
@@ -180,20 +158,17 @@ var searchQuery = "subject:interview"; // Emails with "interview" in subject
 ### Customization
 
 **Change folder:**
-
 ```python
 FOLDER = "INBOX"  # Main inbox
 FOLDER = "Sent Items"  # Sent emails
 ```
 
 **Export more emails:**
-
 ```python
 MAX_EMAILS = 500  # Export 500 emails
 ```
 
 **Change output file:**
-
 ```python
 OUTPUT_FILE = "my_emails.xlsx"
 ```
@@ -221,12 +196,10 @@ OUTPUT_FILE = "my_emails.xlsx"
 ### Gmail Issues
 
 **"Script requires authorization"**
-
 - This is normal on first run
 - Click "Review Permissions" → Choose your account → Allow
 
 **"No emails found"**
-
 - Check your label name (use hyphens for spaces: `job-hunting` not `Job Hunting`)
 - Try `"in:inbox"` to test with all inbox emails
 - Make sure you have emails in that label
@@ -234,19 +207,16 @@ OUTPUT_FILE = "my_emails.xlsx"
 ### Outlook Issues
 
 **"Login failed"**
-
 - Make sure you're using an **app password**, not your regular password
 - Verify IMAP is enabled in Outlook settings
 - Check your email address is correct
 
 **"Could not open folder"**
-
 - Folder names are case-sensitive
 - Try `"INBOX"` for main inbox
 - Script will list available folders if it can't find yours
 
 **"Module not found: openpyxl"**
-
 - Run: `pip install openpyxl`
 
 ---
@@ -265,22 +235,19 @@ OUTPUT_FILE = "my_emails.xlsx"
 ## 🔒 Security & Privacy
 
 ### Gmail Script
-
 - Runs entirely within your Google account
 - Only you can run it
 - No data leaves Google's servers
 - You can revoke access anytime in Google Account settings
 
 ### Outlook Script
-
 - Runs locally on your computer
 - Uses app password (not your real password)
 - No data sent to external services
 - Read-only access (won't modify or delete emails)
 - Store your app password securely (consider a password manager)
 
-**Important:**
-
+**Important:** 
 - Never share your app password
 - Never commit passwords to GitHub
 - Use environment variables for sensitive data in production
@@ -298,7 +265,6 @@ MIT License - Feel free to use, modify, and distribute these scripts!
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 Some ideas for contributions:
-
 - Add support for other email providers
 - Add email attachment handling
 - Add filtering options
@@ -311,7 +277,6 @@ Some ideas for contributions:
 ## ⭐ Show Your Support
 
 If these scripts helped you, please consider:
-
 - ⭐ Starring this repository
 - 🐛 Reporting issues
 - 💡 Suggesting new features
@@ -337,8 +302,7 @@ A: Currently, only email metadata and body text are exported. Attachment support
 A: Gmail script: Limited by execution time (typically 1000-2000 emails). Outlook script: No hard limit, but processing 1000+ emails may take several minutes.
 
 **Q: Can I schedule these to run automatically?**
-A:
-
+A: 
 - Gmail: Use Google Apps Script triggers (time-driven)
 - Outlook: Use Task Scheduler (Windows) or cron (Mac/Linux)
 
